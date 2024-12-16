@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C81DE762CF4EA8C005B3729 /* swapi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swapi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C81DE762CF4EA8C005B3729 /* Swapi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swapi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C81DE882CF4EA8D005B3729 /* swapiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swapiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C81DE922CF4EA8D005B3729 /* swapiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swapiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA4ECBE2D0FECE90070B589 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		5C81DE772CF4EA8C005B3729 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C81DE762CF4EA8C005B3729 /* swapi.app */,
+				5C81DE762CF4EA8C005B3729 /* Swapi.app */,
 				5C81DE882CF4EA8D005B3729 /* swapiTests.xctest */,
 				5C81DE922CF4EA8D005B3729 /* swapiUITests.xctest */,
 			);
@@ -101,9 +101,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C81DE752CF4EA8C005B3729 /* swapi */ = {
+		5C81DE752CF4EA8C005B3729 /* Swapi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C81DE9C2CF4EA8D005B3729 /* Build configuration list for PBXNativeTarget "swapi" */;
+			buildConfigurationList = 5C81DE9C2CF4EA8D005B3729 /* Build configuration list for PBXNativeTarget "Swapi" */;
 			buildPhases = (
 				5C81DE722CF4EA8C005B3729 /* Sources */,
 				5C81DE732CF4EA8C005B3729 /* Frameworks */,
@@ -116,11 +116,11 @@
 			fileSystemSynchronizedGroups = (
 				5C81DE782CF4EA8C005B3729 /* swapi */,
 			);
-			name = swapi;
+			name = Swapi;
 			packageProductDependencies = (
 			);
 			productName = swapi;
-			productReference = 5C81DE762CF4EA8C005B3729 /* swapi.app */;
+			productReference = 5C81DE762CF4EA8C005B3729 /* Swapi.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5C81DE872CF4EA8D005B3729 /* swapiTests */ = {
@@ -206,7 +206,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C81DE752CF4EA8C005B3729 /* swapi */,
+				5C81DE752CF4EA8C005B3729 /* Swapi */,
 				5C81DE872CF4EA8D005B3729 /* swapiTests */,
 				5C81DE912CF4EA8D005B3729 /* swapiUITests */,
 			);
@@ -265,12 +265,12 @@
 /* Begin PBXTargetDependency section */
 		5C81DE8A2CF4EA8D005B3729 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C81DE752CF4EA8C005B3729 /* swapi */;
+			target = 5C81DE752CF4EA8C005B3729 /* Swapi */;
 			targetProxy = 5C81DE892CF4EA8D005B3729 /* PBXContainerItemProxy */;
 		};
 		5C81DE942CF4EA8D005B3729 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C81DE752CF4EA8C005B3729 /* swapi */;
+			target = 5C81DE752CF4EA8C005B3729 /* Swapi */;
 			targetProxy = 5C81DE932CF4EA8D005B3729 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -417,7 +417,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = barrera.alejandro.swapi;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,7 +446,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = barrera.alejandro.swapi;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -537,7 +537,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C81DE9C2CF4EA8D005B3729 /* Build configuration list for PBXNativeTarget "swapi" */ = {
+		5C81DE9C2CF4EA8D005B3729 /* Build configuration list for PBXNativeTarget "Swapi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C81DE9D2CF4EA8D005B3729 /* Debug */,
