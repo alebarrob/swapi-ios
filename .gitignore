@@ -1,0 +1,78 @@
+# Xcode Gitignore
+
+## User settings
+xcuserdata/
+
+## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
+*.xcscmblueprint
+*.xccheckout
+
+## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+build/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+## Obj-C/Swift specific
+*.hmap
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+#
+# No ignoramos Package.resolved para asegurar que las versiones sean consistentes.
+Packages/
+.build/
+.swiftpm/xcode/
+
+# CocoaPods
+#
+# Incluimos Pods/ para evitar que otros desarrolladores tengan que ejecutar `pod install`.
+!Pods/
+Podfile.lock
+
+# Carthage
+#
+# Incluimos Carthage/Build para evitar que otros desarrolladores tengan que compilar dependencias.
+!Carthage/Build/
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Logs
+*.log
+
+# Temporary files
+*.swp
+*.tmp
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Code Injection
+iOSInjectionProject/
+
+# Certificates and provisioning profiles
+*.mobileprovision
+*.provisionprofile
