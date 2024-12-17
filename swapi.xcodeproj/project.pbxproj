@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		5CA4ECBF2D0FECE90070B589 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5CA4ECBE2D0FECE90070B589 /* .gitignore */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		5C81DE892CF4EA8D005B3729 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -28,15 +24,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C5D96612D10863100FCC672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Swapi/Info.plist; sourceTree = "<group>"; };
 		5C81DE762CF4EA8C005B3729 /* Swapi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swapi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C81DE882CF4EA8D005B3729 /* swapiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swapiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C81DE922CF4EA8D005B3729 /* swapiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swapiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA4ECBE2D0FECE90070B589 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5C93B83B2D113F4E00356669 /* Exceptions for "swapi" folder in "Swapi" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5C81DE752CF4EA8C005B3729 /* Swapi */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		5C5D96582D10858000FCC672 /* Fonts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		5C81DE782CF4EA8C005B3729 /* swapi */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5C93B83B2D113F4E00356669 /* Exceptions for "swapi" folder in "Swapi" target */,
+			);
 			path = swapi;
 			sourceTree = "<group>";
 		};
@@ -80,6 +95,8 @@
 		5C81DE6D2CF4EA8C005B3729 = {
 			isa = PBXGroup;
 			children = (
+				5C5D96612D10863100FCC672 /* Info.plist */,
+				5C5D96582D10858000FCC672 /* Fonts */,
 				5CA4ECBE2D0FECE90070B589 /* .gitignore */,
 				5C81DE782CF4EA8C005B3729 /* swapi */,
 				5C81DE8B2CF4EA8D005B3729 /* swapiTests */,
@@ -114,6 +131,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				5C5D96582D10858000FCC672 /* Fonts */,
 				5C81DE782CF4EA8C005B3729 /* swapi */,
 			);
 			name = Swapi;
@@ -218,7 +236,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CA4ECBF2D0FECE90070B589 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +423,7 @@
 				DEVELOPMENT_TEAM = F9WRGXFXNM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/swapi/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -435,6 +453,7 @@
 				DEVELOPMENT_TEAM = F9WRGXFXNM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/swapi/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
