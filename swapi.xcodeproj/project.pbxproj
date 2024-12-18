@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5C1B26752D1325E900C20724 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C1B26742D1325E900C20724 /* Factory */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5C81DE892CF4EA8D005B3729 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -72,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C1B26752D1325E900C20724 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +97,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C1B26732D1325E900C20724 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5C81DE6D2CF4EA8C005B3729 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +113,7 @@
 				5C81DE782CF4EA8C005B3729 /* swapi */,
 				5C81DE8B2CF4EA8D005B3729 /* swapiTests */,
 				5C81DE952CF4EA8D005B3729 /* swapiUITests */,
+				5C1B26732D1325E900C20724 /* Frameworks */,
 				5C81DE772CF4EA8C005B3729 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,6 +149,7 @@
 			);
 			name = Swapi;
 			packageProductDependencies = (
+				5C1B26742D1325E900C20724 /* Factory */,
 			);
 			productName = swapi;
 			productReference = 5C81DE762CF4EA8C005B3729 /* Swapi.app */;
@@ -219,6 +233,9 @@
 			);
 			mainGroup = 5C81DE6D2CF4EA8C005B3729;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5C1B26722D13251500C20724 /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5C81DE772CF4EA8C005B3729 /* Products */;
 			projectDirPath = "";
@@ -584,6 +601,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C1B26722D13251500C20724 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C1B26742D1325E900C20724 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C1B26722D13251500C20724 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C81DE6E2CF4EA8C005B3729 /* Project object */;
 }
