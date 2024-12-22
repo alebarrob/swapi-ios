@@ -6,6 +6,7 @@
 //
 
 private let INITIAL_EQUIVALENT_AMOUNT = 0.0
+private let PLACEHOLDER_ICON_NAME = "placeholder"
 
 extension FoodEntity {
     func toFood() -> Food {
@@ -20,6 +21,7 @@ extension FoodEntity {
         return Food(
             id: Int(id),
             name: name ?? UNAVAILABLE_NAME,
+            iconName: iconName ?? PLACEHOLDER_ICON_NAME,
             standardAmount: standardAmount,
             equivalentAmount: INITIAL_EQUIVALENT_AMOUNT,
             category: category.toCategory(),

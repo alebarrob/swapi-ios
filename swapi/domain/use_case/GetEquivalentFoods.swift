@@ -13,6 +13,7 @@ class GetEquivalentFoods {
                 Food(
                     id: food.id,
                     name: food.name,
+                    iconName: food.iconName,
                     standardAmount: food.standardAmount,
                     equivalentAmount: getEquivalentAmount(
                         discardedFood: params.discardedFood,

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Factory
 
 @main
 struct swapiApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CategoryScreen(container: Container())
                 .environment(\.dimensions, Dimensions())
                 .environment(\.colors, Colors())
                 .environment(\.typography, Typography())

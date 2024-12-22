@@ -8,6 +8,7 @@
 struct Food {
     let id: Int
     let name: String
+    let iconName: String
     let standardAmount: Double
     let equivalentAmount: Double
     let category: Category

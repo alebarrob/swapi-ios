@@ -47,17 +47,17 @@ struct Typography {
     }
     
     let titles = Titles(
-        medium: .inriaSans(.regular, size: 16)
+        medium: .inriaSans(.regular, size: 24)
     )
     
     let body = Body(
-        medium: .inriaSans(.regular, size: 16)
+        medium: .inriaSans(.regular, size: 18)
     )
     
     let labels = Labels(
         large: .lato(.bold, size: 27),
-        medium: .lato(.regular, size: 16),
-        small: .lato(.regular, size: 13)
+        medium: .lato(.regular, size: 20),
+        small: .lato(.regular, size: 15)
     )
 }
 
