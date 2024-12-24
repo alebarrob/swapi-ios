@@ -13,9 +13,9 @@ struct swapiApp: App {
     var body: some Scene {
         WindowGroup {
             CategoryScreen(container: Container())
-                .environment(\.dimensions, Dimensions())
-                .environment(\.colors, Colors())
-                .environment(\.typography, Typography())
+            .environment(\.dimensions, Dimensions())
+            .environment(\.colors, Colors())
+            .environment(\.typography, Typography())
         }
     }
 }

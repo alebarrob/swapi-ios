@@ -8,22 +8,22 @@
 class GetEquivalentFoods {
     func execute(params: Params) -> [Food] {
         return params.replacementFoods
-            .removeDiscardedFood(discardedFood: params.discardedFood)
-            .map { food in
-                Food(
-                    id: food.id,
-                    name: food.name,
-                    iconName: food.iconName,
-                    standardAmount: food.standardAmount,
-                    equivalentAmount: getEquivalentAmount(
-                        discardedFood: params.discardedFood,
-                        discardedFoodAmount: params.discardedFoodAmount,
-                        desiredFood: food
-                    ),
-                    category: food.category,
-                    unit: food.unit
-                )
-            }
+        .removeDiscardedFood(discardedFood: params.discardedFood)
+        .map { food in
+            Food(
+                id: food.id,
+                name: food.name,
+                iconName: food.iconName,
+                standardAmount: food.standardAmount,
+                equivalentAmount: getEquivalentAmount(
+                    discardedFood: params.discardedFood,
+                    discardedFoodAmount: params.discardedFoodAmount,
+                    desiredFood: food
+                ),
+                category: food.category,
+                unit: food.unit
+            )
+        }
     }
     
     private func getEquivalentAmount(

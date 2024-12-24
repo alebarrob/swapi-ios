@@ -23,43 +23,43 @@ struct IconCard: View {
         VStack(spacing: dimensions.small) {
             if !withHightlightIcon {
                 Image(iconName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(
-                        width: dimensions.iconCardIconSize,
-                        height: dimensions.iconCardIconSize
-                    )
+                .resizable()
+                .scaledToFit()
+                .frame(
+                    width: dimensions.iconCardIconSize,
+                    height: dimensions.iconCardIconSize
+                )
             }
             
             Text(text)
-                .font(text.count > longSentenceLenght ? typography.labels.small : typography.labels.medium)
-                .foregroundColor(colors.black)
-                .padding(.horizontal)
-                .background(colors.white)
-                .multilineTextAlignment(.center)
-        }
-            .frame(
-                width: dimensions.iconCardSize,
-                height: dimensions.iconCardSize
-            )
+            .font(text.count > longSentenceLenght ? typography.labels.small : typography.labels.medium)
+            .foregroundColor(colors.black)
+            .padding(.horizontal)
             .background(colors.white)
-            .cornerRadius(dimensions.large)
-            .overlay(alignment: .topLeading) {
-                Group {
-                    if withHightlightIcon {
-                        HighlightIcon(iconName: iconName)
-                            .offset(
-                                x: dimensions.iconCardHightlightImageXOffset,
-                                y: dimensions.iconCardHightlightImageYOffset
-                            )
-                    } else {
-                        EmptyView()
-                    }
+            .multilineTextAlignment(.center)
+        }
+        .frame(
+            width: dimensions.iconCardSize,
+            height: dimensions.iconCardSize
+        )
+        .background(colors.white)
+        .cornerRadius(dimensions.large)
+        .overlay(alignment: .topLeading) {
+            Group {
+                if withHightlightIcon {
+                    HighlightIcon(iconName: iconName)
+                    .offset(
+                        x: dimensions.iconCardHightlightImageXOffset,
+                        y: dimensions.iconCardHightlightImageYOffset
+                    )
+                } else {
+                    EmptyView()
                 }
             }
-            .onTapGesture {
-                onClick()
-            }
+        }
+        .onTapGesture {
+            onClick()
+        }
             
     }
 }

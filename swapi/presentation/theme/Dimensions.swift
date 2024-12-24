@@ -16,6 +16,8 @@ struct Dimensions {
     let extraLarge: CGFloat = 64
     let giant: CGFloat = 128
     
+    let topBarIconSize: CGFloat = 32
+    
     let actionButtonBorderLineWidth: CGFloat = 2
     let actionButtonHorizontalContentPadding: CGFloat = 52
     let actionButtonCornerRadius: CGFloat = 12

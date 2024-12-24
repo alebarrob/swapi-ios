@@ -28,7 +28,7 @@ struct FoodAmountCard: View {
                 isError: isError
             )
         }
-            .padding(dimensions.medium)
+        .padding(dimensions.medium)
     }
 }
 

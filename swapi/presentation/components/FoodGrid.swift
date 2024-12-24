@@ -34,7 +34,6 @@ struct FoodGrid: View {
                     .padding(dimensions.extraSmall)
                 }
             }
-            .padding()
         }
     }
 }

@@ -167,7 +167,7 @@ class PersistenceController {
             let apple = FoodEntity(context: backgroundContext)
             apple.id = 11
             apple.name = "Manzana"
-            apple.name = "appleIcon"
+            apple.iconName = "appleIcon"
             apple.standardAmount = 130.0
             apple.category = fruits
             apple.unit = grams
@@ -343,7 +343,7 @@ class PersistenceController {
             let leanPork = FoodEntity(context: backgroundContext)
             leanPork.id = 33
             leanPork.name = "Lomo de cerdo (Magro)"
-            leanPork.iconName = "leanPorkIcon"
+            leanPork.iconName = "leanPorkLoinIcon"
             leanPork.standardAmount = 85.0
             leanPork.category = fatsAndProteins
             leanPork.unit = grams
@@ -527,7 +527,7 @@ class PersistenceController {
             let dryRiceOrPasta = FoodEntity(context: backgroundContext)
             dryRiceOrPasta.id = 56
             dryRiceOrPasta.name = "Arroz o pasta (En seco)"
-            dryRiceOrPasta.iconName = "iconIcon"
+            dryRiceOrPasta.iconName = "riceIcon"
             dryRiceOrPasta.standardAmount = 30.0
             dryRiceOrPasta.category = carbohydrates
             dryRiceOrPasta.unit = grams
@@ -631,7 +631,7 @@ class PersistenceController {
             let skimmedYogurt = FoodEntity(context: backgroundContext)
             skimmedYogurt.id = 69
             skimmedYogurt.name = "Yogur desnatado"
-            skimmedMilk.iconName = "yogurtIcon"
+            skimmedYogurt.iconName = "yogurtIcon"
             skimmedYogurt.standardAmount = 300.0
             skimmedYogurt.category = dairy
             skimmedYogurt.unit = grams

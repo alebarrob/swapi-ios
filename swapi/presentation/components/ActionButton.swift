@@ -18,20 +18,20 @@ struct ActionButton: View {
     var body: some View {
         Button(action: onClick) {
             Text(text)
-                .font(typography.labels.large)
-                .foregroundColor(colors.black)
-                .padding(.vertical, dimensions.medium)
-                .padding(.horizontal, dimensions.actionButtonHorizontalContentPadding)
-                .background(colors.white)
-                .cornerRadius(dimensions.actionButtonCornerRadius)
-                .overlay(
-                    RoundedRectangle(cornerRadius: dimensions.actionButtonCornerRadius)
-                        .stroke(
-                            colors.darkGreen,
-                            lineWidth: dimensions.actionButtonBorderLineWidth
-                        )
+            .font(typography.labels.large)
+            .foregroundColor(colors.black)
+            .padding(.vertical, dimensions.medium)
+            .padding(.horizontal, dimensions.actionButtonHorizontalContentPadding)
+            .background(colors.white)
+            .cornerRadius(dimensions.actionButtonCornerRadius)
+            .overlay(
+                RoundedRectangle(cornerRadius: dimensions.actionButtonCornerRadius)
+                .stroke(
+                    colors.darkGreen,
+                    lineWidth: dimensions.actionButtonBorderLineWidth
                 )
-                .shadow(radius: dimensions.actionButtonCornerRadius)
+            )
+            .shadow(radius: dimensions.actionButtonCornerRadius)
         }
     }
 }

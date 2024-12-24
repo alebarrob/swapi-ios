@@ -22,8 +22,8 @@ struct DropDownButton: View {
                     onOptionClick(option)
                 } label: {
                     Text(option.uppercased())
-                        .font(typography.labels.medium)
-                        .foregroundColor(colors.black)
+                    .font(typography.labels.medium)
+                    .foregroundColor(colors.black)
                 }
             }
         } label: {

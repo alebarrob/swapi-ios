@@ -23,20 +23,20 @@ class FoodRepositoryImpl: FoodRepository {
                 
                 do {
                     guard let foodEntity = try self.context
-                        .fetch(fetchRequest)
-                        .first else {
-                            continuation.resume(
-                                returning: .failure(
-                                    NSError(
-                                        domain: "FoodNotFound",
-                                        code: 404,
-                                        userInfo: [NSLocalizedDescriptionKey: "Alimento no encontrado"]
-                                    )
+                    .fetch(fetchRequest)
+                    .first else {
+                        continuation.resume(
+                            returning: .failure(
+                                NSError(
+                                    domain: "FoodNotFound",
+                                    code: 404,
+                                    userInfo: [NSLocalizedDescriptionKey: "Alimento no encontrado"]
                                 )
                             )
-                        
-                            return
-                        }
+                        )
+                    
+                        return
+                    }
                     let food = foodEntity.toFood()
                     
                     continuation.resume(returning: .success(food))
@@ -56,10 +56,10 @@ class FoodRepositoryImpl: FoodRepository {
                 
                 do {
                     let foods = try self.context
-                        .fetch(fetchRequest)
-                        .map { foodEntity in
-                            foodEntity.toFood()
-                        }
+                    .fetch(fetchRequest)
+                    .map { foodEntity in
+                        foodEntity.toFood()
+                    }
                     
                     continuation.resume(returning: .success(foods))
                 } catch {

@@ -9,12 +9,18 @@ import SwiftUI
 
 struct LoadingScreen: View {
     var body: some View {
-        ProgressView("¡Espera un momento!")
+        ZStack {
+            ProgressView("¡Espera un momento!")
             .progressViewStyle(CircularProgressViewStyle())
             .padding()
+        }
     }
 }
 
 #Preview("Loading State") {
-    LoadingScreen()
+    @Previewable @Environment(\.colors) var colors
+    
+    VerticalGradientBackground(colors: [colors.lightGreen, colors.green]) {
+        LoadingScreen()
+    }
 }

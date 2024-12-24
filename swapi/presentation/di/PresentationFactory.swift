@@ -9,7 +9,18 @@ import Factory
 
 extension Container {
     var categoryViewModel: Factory<CategoryViewModel> {
-        self { CategoryViewModel(getAllCategories: self.getAllCategories()) }
-                .singleton
+        self {
+            CategoryViewModel(getAllCategories: self.getAllCategories())
         }
+        .singleton
+    }
+    
+    var foodSelectionViewModel: ParameterFactory<Int, FoodSelectionViewModel> {
+        self { categoryId in
+            FoodSelectionViewModel(
+                getFoodsByCategoryId: self.getFoodsByCategoryId(),
+                categoryId: categoryId
+            )
+        }
+    }
 }

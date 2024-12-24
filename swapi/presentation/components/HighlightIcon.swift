@@ -15,25 +15,25 @@ struct HighlightIcon: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: dimensions.medium)
-            .stroke(
-                colors.darkGold,
-                lineWidth: dimensions.highlightImageBorderLineWidth
-            )
-            .fill(colors.gold)
+        .stroke(
+            colors.darkGold,
+            lineWidth: dimensions.highlightImageBorderLineWidth
+        )
+        .fill(colors.gold)
+        .frame(
+            width: dimensions.highlightImageContainerSize,
+            height: dimensions.highlightImageContainerSize
+        )
+        .overlay(
+            Image(iconName)
+            .resizable()
+            .scaledToFit()
             .frame(
-                width: dimensions.highlightImageContainerSize,
-                height: dimensions.highlightImageContainerSize
+                width: dimensions.highlightImageSize,
+                height: dimensions.highlightImageSize
             )
-            .overlay(
-                Image(iconName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(
-                        width: dimensions.highlightImageSize,
-                        height: dimensions.highlightImageSize
-                    )
-                    .padding(dimensions.small)
-            )
+            .padding(dimensions.small)
+        )
     }
 }
 

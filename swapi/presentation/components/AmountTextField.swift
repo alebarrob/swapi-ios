@@ -22,19 +22,19 @@ struct AmountTextField: View {
             unit.name,
             text: $amount
         )
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: dimensions.small)
-                    .fill(Color.white)
-                    .stroke(
-                        isError ? colors.red : colors.green,
-                        lineWidth: dimensions.amountTextFieldBorderLineWidth
-                    )
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: dimensions.small)
+            .fill(Color.white)
+            .stroke(
+                isError ? colors.red : colors.green,
+                lineWidth: dimensions.amountTextFieldBorderLineWidth
             )
-            .frame(width: dimensions.amountTextFieldWidth)
-            .focused($isFocused)
-            .keyboardType(.decimalPad)
-            .submitLabel(.done)
+        )
+        .frame(width: dimensions.amountTextFieldWidth)
+        .focused($isFocused)
+        .keyboardType(.decimalPad)
+        .submitLabel(.done)
     }
 }
 

@@ -21,9 +21,9 @@ class CategoryRepositoryImpl : CategoryRepository {
                 
                 do {
                     let categories = try self.context
-                        .fetch(fetchRequest)
-                        .map { categoryEntity in
-                            categoryEntity.toCategory()
+                    .fetch(fetchRequest)
+                    .map { categoryEntity in
+                        categoryEntity.toCategory()
                     }
                     
                     continuation.resume(returning: .success(categories))

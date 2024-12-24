@@ -12,13 +12,13 @@ extension Container {
         self {
             CategoryRepositoryImpl(context: PersistenceController.shared.context)
         }
-            .singleton
+        .singleton
     }
     
     var foodRepository: Factory<FoodRepository> {
         self {
             FoodRepositoryImpl(context: PersistenceController.shared.context)
         }
-            .singleton
+        .singleton
     }
 }

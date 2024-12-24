@@ -9,27 +9,37 @@ import Factory
 
 extension Container {
     var getAllCategories: Factory<GetAllCategories> {
-        self { GetAllCategories(categoryRepository: self.categoryRepository()) }
-                .singleton
+        self {
+            GetAllCategories(categoryRepository: self.categoryRepository())
         }
+        .singleton
+    }
     
     var getEquivalentFoods: Factory<GetEquivalentFoods> {
-        self { GetEquivalentFoods() }
-                .singleton
+        self {
+            GetEquivalentFoods()
         }
+        .singleton
+    }
     
     var getFoodById: Factory<GetFoodById> {
-        self { GetFoodById(foodRepository: self.foodRepository()) }
-                .singleton
+        self {
+            GetFoodById(foodRepository: self.foodRepository())
         }
+        .singleton
+    }
     
     var getFoodsByCategoryId: Factory<GetFoodsByCategoryId> {
-        self { GetFoodsByCategoryId(foodRepository: self.foodRepository()) }
-                .singleton
+        self {
+            GetFoodsByCategoryId(foodRepository: self.foodRepository())
         }
+        .singleton
+    }
     
     var isValidFoodAmount: Factory<IsValidFoodAmount> {
-        self { IsValidFoodAmount() }
-                .singleton
+        self {
+            IsValidFoodAmount()
         }
+        .singleton
+    }
 }
