@@ -6,6 +6,6 @@
 //
 
 enum IconPosition {
-    case DECORATIVE_ON_START
-    case HIGHLIGHT_ON_START
+    case decorativeOnStart
+    case highlightOnStart
 }

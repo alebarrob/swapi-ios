@@ -9,10 +9,10 @@ import SwiftUI
 import Factory
 
 @main
-struct swapiApp: App {
+struct SwapiApp: App {
     var body: some Scene {
         WindowGroup {
-            CategoryScreen(container: Container())
+            NavGraph(container: Container())
             .environment(\.dimensions, Dimensions())
             .environment(\.colors, Colors())
             .environment(\.typography, Typography())

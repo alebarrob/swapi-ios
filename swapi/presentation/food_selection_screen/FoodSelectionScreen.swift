@@ -37,33 +37,24 @@ struct FoodSelectionScreen: View {
                     SuccessFoodSelectionScreen(
                         foods: foods,
                         onFoodClick: { foodId in
-                            foodId
+                            path.append(
+                                Destination.foodAmountSelectionScreen(foodId: foodId)
+                            )
+                        }
+                    )
+                    .navigationDestination(
+                        for: Int.self,
+                        destination: { foodId in
+                            FoodAmountSelectionScreen(
+                                container: container,
+                                path: $path,
+                                foodId: foodId
+                            )
                         }
                     )
 
                 case .failure:
                     FailureScreen()
-            }
-        }
-        .toolbarBackground(colors.darkGreen, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: { path.removeLast() }) {
-                    HStack(spacing: dimensions.small) {
-                        Image(systemName: "chevron.backward")
-                        Text("Volver")
-                    }
-                    .foregroundColor(colors.white)
-                    .font(typography.labels.medium)
-                }
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: { path = NavigationPath() }) {
-                    Image(systemName: "house")
-                    .foregroundColor(colors.white)
-                }
             }
         }
     }
@@ -85,7 +76,7 @@ struct SuccessFoodSelectionScreen: View {
                 },
                 decorativeIconName: "questionWatermelonIcon",
                 highlightIconName: nil,
-                iconPosition: IconPosition.HIGHLIGHT_ON_START
+                iconPosition: IconPosition.highlightOnStart
             )
             FoodGrid(
                 foods: foods,

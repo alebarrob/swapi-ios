@@ -6,5 +6,5 @@
 //
 
 enum FoodSelectionScreenEvent {
-    case loadFood(categoryId: Int)
+    case loadFoods(categoryId: Int)
 }

@@ -15,17 +15,17 @@ class FoodSelectionViewModel : ObservableObject {
     init(getFoodsByCategoryId: GetFoodsByCategoryId, categoryId: Int) {
         self.getFoodsByCategoryId = getFoodsByCategoryId
         
-        onEvent(FoodSelectionScreenEvent.loadFood(categoryId: categoryId))
+        onEvent(FoodSelectionScreenEvent.loadFoods(categoryId: categoryId))
     }
     
     func onEvent(_ event: FoodSelectionScreenEvent) {
         switch event {
-        case .loadFood(let categoryId):
-            loadFood(categoryId: categoryId)
+        case .loadFoods(let categoryId):
+            loadFoods(categoryId: categoryId)
         }
     }
     
-    private func loadFood(categoryId: Int) {
+    private func loadFoods(categoryId: Int) {
         state = .loading
         
         Task {

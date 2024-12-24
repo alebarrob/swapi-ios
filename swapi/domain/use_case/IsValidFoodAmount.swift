@@ -14,6 +14,6 @@ class IsValidFoodAmount {
     }
     
     struct Params {
-        let amount: Int
+        let amount: String
     }
 }

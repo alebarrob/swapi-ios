@@ -14,6 +14,8 @@ class CategoryViewModel : ObservableObject {
     
     init(getAllCategories: GetAllCategories) {
         self.getAllCategories = getAllCategories
+        
+        onEvent(.loadCategories)
     }
     
     func onEvent(_ event: CategoryScreenEvent) {

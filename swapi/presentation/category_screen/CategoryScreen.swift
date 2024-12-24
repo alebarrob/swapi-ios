@@ -13,46 +13,37 @@ struct CategoryScreen: View {
     @Environment(\.dimensions) var dimensions
     @Environment(\.typography) var typography
     @StateObject private var viewModel: CategoryViewModel
-    @State private var path = NavigationPath()
     
     let container: Container
+    @Binding private var path: NavigationPath
     
-    init(container: Container) {
+    init(
+        container: Container,
+        path: Binding<NavigationPath>
+    ) {
         self.container = container
+        _path = path
         _viewModel = StateObject(wrappedValue: container.categoryViewModel())
     }
     
     var body: some View {
-        NavigationStack(path: $path) {
-            VerticalGradientBackground(colors: [colors.lightGreen, colors.green]) {
-                switch viewModel.state {
-                    case .loading:
-                        LoadingScreen()
+        VerticalGradientBackground(colors: [colors.lightGreen, colors.green]) {
+            switch viewModel.state {
+                case .loading:
+                    LoadingScreen()
 
-                    case .success(let categories):
-                        SuccessCategoryScreen(
-                            categories: categories,
-                            onCategoryClick: { categoryId in
-                                path.append(categoryId)
-                            }
-                        )
-                        .navigationDestination(
-                            for: Int.self,
-                            destination: { categoryId in
-                                FoodSelectionScreen(
-                                    container: container,
-                                    path: $path,
-                                    categoryId: categoryId
-                                )
-                            }
-                        )
+                case .success(let categories):
+                    SuccessCategoryScreen(
+                        categories: categories,
+                        onCategoryClick: { categoryId in
+                            path.append(
+                                Destination.foodSelectionScreen(categoryId: categoryId)
+                            )
+                        }
+                    )
 
-                    case .failure:
-                        FailureScreen()
-                }
-            }
-            .onAppear {
-                viewModel.onEvent(.loadCategories)
+                case .failure:
+                    FailureScreen()
             }
         }
     }
@@ -86,7 +77,7 @@ struct SuccessCategoryScreen: View {
                 },
                 decorativeIconName: "happyWatermelonIcon",
                 highlightIconName: nil,
-                iconPosition: IconPosition.HIGHLIGHT_ON_START
+                iconPosition: IconPosition.highlightOnStart
             )
             DropDownButton(
                 text: "CATEGORÍAS",

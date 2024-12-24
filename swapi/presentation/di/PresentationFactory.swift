@@ -23,4 +23,14 @@ extension Container {
             )
         }
     }
+    
+    var foodAmountSelectionViewModel: ParameterFactory<Int, FoodAmountSelectionViewModel> {
+        self { foodId in
+            FoodAmountSelectionViewModel(
+                getFoodById: self.getFoodById(),
+                isValidFoodAmount: self.isValidFoodAmount(),
+                foodId: foodId
+            )
+        }
+    }
 }

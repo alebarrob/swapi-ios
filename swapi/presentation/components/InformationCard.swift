@@ -28,7 +28,7 @@ struct InformationCard: View {
         .padding(.vertical, dimensions.informationCardVerticalPadding)
         .background(colors.white)
         .cornerRadius(dimensions.medium)
-        .overlay(alignment: iconPosition == .DECORATIVE_ON_START ? .topLeading : .topTrailing) {
+        .overlay(alignment: iconPosition == .decorativeOnStart ? .topLeading : .topTrailing) {
             Group {
                 if let iconName = decorativeIconName {
                     Image(iconName)
@@ -45,7 +45,7 @@ struct InformationCard: View {
                 }
             }
         }
-        .overlay(alignment: iconPosition == .HIGHLIGHT_ON_START ? .topLeading : .topTrailing) {
+        .overlay(alignment: iconPosition == .highlightOnStart ? .topLeading : .topTrailing) {
             Group {
                 if let iconName = highlightIconName {
                     HighlightIcon(iconName: iconName)
@@ -84,7 +84,7 @@ struct InformationCard: View {
                 },
                 decorativeIconName: "surprisedWatermelonIcon",
                 highlightIconName: nil,
-                iconPosition: IconPosition.DECORATIVE_ON_START
+                iconPosition: IconPosition.decorativeOnStart
             )
         }
         .padding(.horizontal, -dimensions.informationCardHightlightImageXOffset)
@@ -115,7 +115,7 @@ struct InformationCard: View {
                 },
                 decorativeIconName: "wowWatermelonIcon",
                 highlightIconName: nil,
-                iconPosition: IconPosition.HIGHLIGHT_ON_START
+                iconPosition: IconPosition.highlightOnStart
             )
         }
         .padding(.horizontal, -dimensions.informationCardHightlightImageXOffset)
@@ -146,7 +146,7 @@ struct InformationCard: View {
                 },
                 decorativeIconName: "wowWatermelonIcon",
                 highlightIconName: "avocadoIcon",
-                iconPosition: IconPosition.HIGHLIGHT_ON_START
+                iconPosition: IconPosition.highlightOnStart
             )
         }
         .padding(.horizontal, -dimensions.informationCardHightlightImageXOffset)
