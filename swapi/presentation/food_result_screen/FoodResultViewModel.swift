@@ -80,7 +80,7 @@ class FoodResultViewModel : ObservableObject {
                     
                     self.state = .success(
                         discardedFood: discardedFood.toFoodVo(),
-                        discardedFoodAmount: String(discardedFoodAmount),
+                        discardedFoodAmount: discardedFoodAmount.formatAndRemoveTrailingZeros(),
                         equivalentFoods: equivalentFoods.map { food in
                             food.toFoodVo()
                         }

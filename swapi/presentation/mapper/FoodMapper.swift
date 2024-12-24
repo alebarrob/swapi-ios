@@ -9,7 +9,7 @@ import Foundation
 
 extension Food {
     func toFoodVo() -> FoodVo {
-        let formattedEquivalentAmount = formatEquivalentAmount(equivalentAmount: equivalentAmount)
+        let formattedEquivalentAmount = equivalentAmount.formatAndRemoveTrailingZeros()
         
         return FoodVo(
             id: id,
@@ -20,18 +20,5 @@ extension Food {
             category: category.toCategoryVo(),
             unit: unit.toUnitVo()
         )
-    }
-    
-    private func formatEquivalentAmount(equivalentAmount: Double) -> String {
-        let twoDecimalsFormattedAmount = String(format: "%.2f", equivalentAmount)
-        let trailingZerosRegex = try! NSRegularExpression(pattern: "[.,]00$")
-        let formattedEquivalentAmount = trailingZerosRegex.stringByReplacingMatches(
-            in: twoDecimalsFormattedAmount,
-            options: [],
-            range: NSRange(location: 0, length: twoDecimalsFormattedAmount.count),
-            withTemplate: ""
-        )
-        
-        return formattedEquivalentAmount
     }
 }
