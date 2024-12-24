@@ -33,4 +33,16 @@ extension Container {
             )
         }
     }
+    
+    var foodResultViewModel: ParameterFactory<(Int, String), FoodResultViewModel> {
+            self { (discardedFoodId, discardedFoodAmount) in
+                FoodResultViewModel(
+                    getFoodById: self.getFoodById(),
+                    getFoodsByCategoryId: self.getFoodsByCategoryId(),
+                    getEquivalentFoods: self.getEquivalentFoods(),
+                    discardedFoodId: discardedFoodId,
+                    discardedFoodAmount: discardedFoodAmount
+                )
+            }
+        }
 }

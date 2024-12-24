@@ -7,5 +7,11 @@
 
 enum Destination: Hashable {
     case foodSelectionScreen(categoryId: Int)
+    
     case foodAmountSelectionScreen(foodId: Int)
+    
+    case foodResultScreen(
+        discardedFoodId: Int,
+        discardedFoodAmount: String
+    )
 }

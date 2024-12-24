@@ -31,7 +31,8 @@ struct FoodGrid: View {
                         },
                         withHightlightIcon: withResult
                     )
-                    .padding(dimensions.extraSmall)
+                    .padding(.top, withResult ? -dimensions.iconCardHightlightImageYOffset : 0)
+                    .padding(.leading, withResult ? -dimensions.iconCardHightlightImageYOffset : 0)
                 }
             }
         }

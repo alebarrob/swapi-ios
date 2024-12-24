@@ -43,7 +43,19 @@ struct NavGraph: View {
                                 foodId: foodId
                             )
                             .navigationBar(path: $path)
-                    }
+                        
+                        case .foodResultScreen(
+                            let discardedFoodId,
+                            let discardedFoodAmount
+                        ):
+                            FoodResultScreen(
+                                container: container,
+                                path: $path,
+                                discardedFoodId: discardedFoodId,
+                                discardedFoodAmount: discardedFoodAmount
+                            )
+                            .navigationBar(path: $path)
+                        }
                 }
             )
         }

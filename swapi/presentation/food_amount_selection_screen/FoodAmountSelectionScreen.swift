@@ -39,8 +39,13 @@ struct FoodAmountSelectionScreen: View {
                         isValidFoodAmount: { amount in
                             viewModel.isValidFoodAmount(amount: amount)
                         },
-                        onCalculateClick: { foodId, amount in
-                            
+                        onCalculateClick: { discardedFoodId, discardedFoodAmount in
+                            path.append(
+                                Destination.foodResultScreen(
+                                    discardedFoodId: discardedFoodId,
+                                    discardedFoodAmount: discardedFoodAmount
+                                )
+                            )
                         }
                     )
 
@@ -104,6 +109,13 @@ struct SuccessFoodAmountSelectionScreen: View {
         .padding(.top, -dimensions.informationCardDecorativeImageYOffset)
         .padding(.top, dimensions.extraSmall)
         .frame(maxHeight: .infinity, alignment: .top)
+        .alert(isPresented: $isError) {
+            Alert(
+                title: Text("¡Atención!"),
+                message: Text("La cantidad introducida no es válida."),
+                dismissButton: .default(Text("ACEPTAR"))
+            )
+        }
     }
 }
 
