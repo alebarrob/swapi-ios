@@ -8,7 +8,7 @@
 import XCTest
 @testable import Swapi
 
-final class testIsValidFoodAmount: XCTestCase {
+final class IsValidFoodAmountTest: XCTestCase {
     
     private var isValidFoodAmount: IsValidFoodAmount!
 
