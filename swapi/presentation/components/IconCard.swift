@@ -44,6 +44,7 @@ struct IconCard: View {
         )
         .background(colors.white)
         .cornerRadius(dimensions.large)
+        .accessibilityIdentifier(text)
         .overlay(alignment: .topLeading) {
             Group {
                 if withHightlightIcon {

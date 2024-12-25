@@ -7,7 +7,7 @@
 
 class IsValidFoodAmount {
     func execute(params: Params) -> Bool {
-        let regex = "\\d+([.,]\\d+)?"
+        let regex = "^\\d+([.,]\\d+)?$"
         let matches = String(params.amount).range(of: regex, options: .regularExpression) != nil
         
         return matches

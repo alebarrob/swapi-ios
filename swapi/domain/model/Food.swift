@@ -5,7 +5,7 @@
 //  Created by Alejandro Barrera Robles on 17/12/24.
 //
 
-struct Food {
+struct Food: Equatable {
     let id: Int
     let name: String
     let iconName: String
