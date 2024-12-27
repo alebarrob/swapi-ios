@@ -96,7 +96,7 @@ struct SuccessCategoryScreen: View {
         }
         .padding(.horizontal, dimensions.medium)
         .padding(.top, -dimensions.informationCardDecorativeImageYOffset)
-        .padding(.top, dimensions.extraSmall)
+        .padding(.top, dimensions.medium)
         .frame(maxHeight: .infinity, alignment: .top)
     }
 }

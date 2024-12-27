@@ -31,10 +31,20 @@ struct AmountTextField: View {
                 lineWidth: dimensions.amountTextFieldBorderLineWidth
             )
         )
+        .foregroundColor(colors.black)
         .frame(width: dimensions.amountTextFieldWidth)
         .focused($isFocused)
         .keyboardType(.decimalPad)
-        .submitLabel(.done)
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Aceptar") {
+                    isFocused = false
+                }
+                .font(typography.labels.medium)
+                .foregroundColor(colors.white)
+            }
+        }
     }
 }
 

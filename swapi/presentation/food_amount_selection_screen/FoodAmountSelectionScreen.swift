@@ -97,7 +97,7 @@ struct SuccessFoodAmountSelectionScreen: View {
                         isError = false
                         onCalculateClick(
                             food.id,
-                            amount
+                            amount.replacingOccurrences(of: ",", with: ".")
                         )
                     } else {
                         isError = true
@@ -107,7 +107,7 @@ struct SuccessFoodAmountSelectionScreen: View {
         }
         .padding(.horizontal, dimensions.large)
         .padding(.top, -dimensions.informationCardDecorativeImageYOffset)
-        .padding(.top, dimensions.extraSmall)
+        .padding(.top, dimensions.medium)
         .frame(maxHeight: .infinity, alignment: .top)
         .alert(isPresented: $isError) {
             Alert(
