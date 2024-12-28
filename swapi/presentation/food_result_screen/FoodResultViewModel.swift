@@ -75,7 +75,7 @@ class FoodResultViewModel : ObservableObject {
                     )
                 )
 
-                DispatchQueue.main.async { [weak self] in
+                await MainActor.run { [weak self] in
                     guard let self = self else { return }
                     
                     self.state = .success(
@@ -87,7 +87,7 @@ class FoodResultViewModel : ObservableObject {
                     )
                 }
             } catch {
-                DispatchQueue.main.async { [weak self] in
+                await MainActor.run { [weak self] in
                     self?.state = .failure
                 }
             }

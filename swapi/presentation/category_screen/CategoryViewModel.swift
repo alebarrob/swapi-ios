@@ -31,7 +31,7 @@ class CategoryViewModel : ObservableObject {
         Task {
             let result = await getAllCategories.execute()
             
-            DispatchQueue.main.async { [weak self] in
+            await MainActor.run { [weak self] in
                 guard let self = self else { return }
                 
                 switch result {

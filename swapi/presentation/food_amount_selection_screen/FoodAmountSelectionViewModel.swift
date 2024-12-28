@@ -37,7 +37,7 @@ class FoodAmountSelectionViewModel : ObservableObject {
         Task {
             let result = await getFoodById.execute(params: GetFoodById.Params(id: id))
             
-            DispatchQueue.main.async { [weak self] in
+            await MainActor.run { [weak self] in
                 guard let self = self else { return }
                 
                 switch result {
