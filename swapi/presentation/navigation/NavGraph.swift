@@ -9,6 +9,7 @@ import SwiftUI
 import Factory
 
 struct NavGraph: View {
+    @Environment(\.colors) var colors
     @State private var path = NavigationPath()
     
     let container: Container
@@ -59,5 +60,6 @@ struct NavGraph: View {
                 }
             )
         }
+        .accentColor(colors.white)
     }
 }

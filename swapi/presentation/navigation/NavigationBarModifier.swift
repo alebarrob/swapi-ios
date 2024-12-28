@@ -18,18 +18,7 @@ struct NavigationBarModifier: ViewModifier {
         content
             .toolbarBackground(colors.darkGreen, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
-            .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: { path.removeLast() }) {
-                        HStack(spacing: dimensions.small) {
-                            Image(systemName: "chevron.backward")
-                            Text("Volver")
-                        }
-                        .foregroundColor(colors.white)
-                        .font(typography.labels.medium)
-                    }
-                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { path = NavigationPath() }) {
                         Image(systemName: "house")
