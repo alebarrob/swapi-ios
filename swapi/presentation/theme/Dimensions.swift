@@ -29,7 +29,7 @@ struct Dimensions {
     let errorPopupYOffset: CGFloat = -70
     
     let highlightImageBorderLineWidth: CGFloat = 2
-    let highlightImageSize: CGFloat = 40
+    let highlightImageSize: CGFloat = 25
     let highlightImageContainerSize: CGFloat = 45
     
     let informationCardVerticalPadding: CGFloat = 45

@@ -19,8 +19,9 @@ struct AmountTextField: View {
 
     var body: some View {
         TextField(
-            unit.name,
-            text: $amount
+            "",
+            text: $amount,
+            prompt: Text(unit.name).foregroundColor(colors.black.opacity(0.4))
         )
         .padding()
         .background(
