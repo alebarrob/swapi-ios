@@ -15,7 +15,7 @@ struct AmountTextField: View {
     let unit: UnitVo
     @Binding var amount: String
     let isError: Bool
-    @FocusState private var isFocused: Bool
+    var isFocused: FocusState<Bool>.Binding
 
     var body: some View {
         TextField(
@@ -34,7 +34,7 @@ struct AmountTextField: View {
         )
         .foregroundColor(colors.black)
         .frame(width: dimensions.amountTextFieldWidth)
-        .focused($isFocused)
+        .focused(isFocused)
         .keyboardType(.numbersAndPunctuation)
     }
 }
@@ -42,6 +42,7 @@ struct AmountTextField: View {
 #Preview("Amount TextField") {
     @Previewable @Environment(\.colors) var colors
     @Previewable @State var amount: String = ""
+    @Previewable @FocusState var isFocused: Bool
     
     VerticalGradientBackground(colors: [colors.lightGreen, colors.green]) {
         AmountTextField(
@@ -50,7 +51,8 @@ struct AmountTextField: View {
                 name: "gr."
             ),
             amount: $amount,
-            isError: false
+            isError: false,
+            isFocused: $isFocused
         )
     }
 }
@@ -58,6 +60,7 @@ struct AmountTextField: View {
 #Preview("Amount TextField Error") {
     @Previewable @Environment(\.colors) var colors
     @Previewable @State var amount: String = ""
+    @Previewable @FocusState var isFocused: Bool
     
     VerticalGradientBackground(colors: [colors.lightGreen, colors.green]) {
         AmountTextField(
@@ -66,7 +69,8 @@ struct AmountTextField: View {
                 name: "gr."
             ),
             amount: $amount,
-            isError: true
+            isError: true,
+            isFocused: $isFocused
         )
     }
 }

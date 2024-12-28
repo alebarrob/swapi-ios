@@ -66,6 +66,7 @@ struct SuccessFoodAmountSelectionScreen: View {
     let food: FoodVo
     let isValidFoodAmount: (String) -> Bool
     let onCalculateClick: (Int, String) -> Void
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         let firstChunk = Text("¡Casi hemos terminado! Dime cuánta cantidad de este alimento ibas a consumir. Después, pulsa en ")
@@ -76,45 +77,55 @@ struct SuccessFoodAmountSelectionScreen: View {
         let thirdChunk = Text(".")
         .foregroundColor(colors.black)
         
-        VStack(spacing: dimensions.medium) {
-            InformationCard(
-                text: {
-                    firstChunk + secondChunk + thirdChunk
-                },
-                decorativeIconName: "surprisedWatermelonIcon",
-                highlightIconName: nil,
-                iconPosition: IconPosition.decorativeOnStart
-            )
-            FoodAmountCard(
-                food: food,
-                amount: $amount,
-                isError: isError
-            )
-            ActionButton(
-                text: "¡Calcular Equivalencias!",
-                onClick: {
-                    if isValidFoodAmount(amount) {
-                        isError = false
-                        onCalculateClick(
-                            food.id,
-                            amount.replacingOccurrences(of: ",", with: ".")
-                        )
-                    } else {
-                        isError = true
-                    }
+        ZStack {
+            Color.clear
+                .ignoresSafeArea()
+                .contentShape(Rectangle()) // Asegura que el área completa sea interactiva
+                .onTapGesture {
+                    isFocused = false
                 }
-            )
-        }
-        .padding(.horizontal, dimensions.large)
-        .padding(.top, -dimensions.informationCardDecorativeImageYOffset)
-        .padding(.top, dimensions.medium)
-        .frame(maxHeight: .infinity, alignment: .top)
-        .alert(isPresented: $isError) {
-            Alert(
-                title: Text("¡Atención!"),
-                message: Text("La cantidad introducida no es válida."),
-                dismissButton: .default(Text("ACEPTAR"))
-            )
+            
+            VStack(spacing: dimensions.medium) {
+                InformationCard(
+                    text: {
+                        firstChunk + secondChunk + thirdChunk
+                    },
+                    decorativeIconName: "surprisedWatermelonIcon",
+                    highlightIconName: nil,
+                    iconPosition: IconPosition.decorativeOnStart
+                )
+                FoodAmountCard(
+                    food: food,
+                    amount: $amount,
+                    isError: isError,
+                    isFocused: $isFocused
+                )
+                ActionButton(
+                    text: "¡Calcular Equivalencias!",
+                    onClick: {
+                        if isValidFoodAmount(amount) {
+                            isError = false
+                            onCalculateClick(
+                                food.id,
+                                amount.replacingOccurrences(of: ",", with: ".")
+                            )
+                        } else {
+                            isError = true
+                        }
+                    }
+                )
+            }
+            .padding(.horizontal, dimensions.large)
+            .padding(.top, -dimensions.informationCardDecorativeImageYOffset)
+            .padding(.top, dimensions.medium)
+            .frame(maxHeight: .infinity, alignment: .top)
+            .alert(isPresented: $isError) {
+                Alert(
+                    title: Text("¡Atención!"),
+                    message: Text("La cantidad introducida no es válida."),
+                    dismissButton: .default(Text("ACEPTAR"))
+                )
+            }
         }
     }
 }

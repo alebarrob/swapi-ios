@@ -13,6 +13,7 @@ struct FoodAmountCard: View {
     let food: FoodVo
     @Binding var amount: String
     let isError: Bool
+    var isFocused: FocusState<Bool>.Binding
     
     var body: some View {
         VStack(spacing: dimensions.foodAmountCardContentSpacing) {
@@ -25,7 +26,8 @@ struct FoodAmountCard: View {
             AmountTextField(
                 unit: food.unit,
                 amount: $amount,
-                isError: isError
+                isError: isError,
+                isFocused: isFocused
             )
         }
         .padding(dimensions.medium)
@@ -35,6 +37,7 @@ struct FoodAmountCard: View {
 #Preview("Food Amount Card") {
     @Previewable @Environment(\.colors) var colors
     @Previewable @State var amount: String = ""
+    @Previewable @FocusState var isFocused: Bool
     
     VerticalGradientBackground(colors: [colors.lightGreen, colors.green]) {
         FoodAmountCard(
@@ -55,7 +58,8 @@ struct FoodAmountCard: View {
                 )
             ),
             amount: $amount,
-            isError: false
+            isError: false,
+            isFocused: $isFocused
         )
     }
 }
