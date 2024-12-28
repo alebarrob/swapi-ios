@@ -38,8 +38,8 @@ struct Dimensions {
     let informationCardHightlightImageYOffset: CGFloat = -15
     let informationCardHightlightImageXOffset: CGFloat = -10
     
-    let iconCardIconSize: CGFloat = 45
-    let iconCardSize: CGFloat = 120
+    let iconCardIconSize: CGFloat = 65
+    let iconCardSize: CGFloat = 160
     let iconCardHightlightImageYOffset: CGFloat = -10
     let iconCardHightlightImageXOffset: CGFloat = -10
     
