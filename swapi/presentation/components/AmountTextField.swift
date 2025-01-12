@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AmountTextField: View {
     @Environment(\.dimensions) var dimensions
-    @Environment(\.typography) var typography
     @Environment(\.colors) var colors
     
     let unit: UnitVo
@@ -23,6 +22,7 @@ struct AmountTextField: View {
             text: $amount,
             prompt: Text(unit.name).foregroundColor(colors.black.opacity(0.4))
         )
+        .accentColor(colors.black)
         .padding()
         .background(
             RoundedRectangle(cornerRadius: dimensions.small)

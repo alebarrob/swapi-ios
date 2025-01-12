@@ -80,7 +80,7 @@ struct SuccessFoodAmountSelectionScreen: View {
         ZStack {
             Color.clear
                 .ignoresSafeArea()
-                .contentShape(Rectangle()) // Asegura que el área completa sea interactiva
+                .contentShape(Rectangle())
                 .onTapGesture {
                     isFocused = false
                 }
