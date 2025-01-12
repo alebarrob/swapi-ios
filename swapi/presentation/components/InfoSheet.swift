@@ -37,19 +37,6 @@ struct InfoSheet: View {
                 .foregroundColor(.blue)
                 .multilineTextAlignment(.leading)
             }
-            Divider()
-            Text("Diálogo de Consentimiento para el Uso de Datos Personales")
-            .font(typography.titles.medium)
-            .fontWeight(.semibold)
-            Button {
-                
-            } label: {
-                Text("Ver Diálogo")
-                .font(typography.labels.small)
-                .fontWeight(.semibold)
-                .foregroundColor(colors.black)
-            }
-            .buttonStyle(.bordered)
             Spacer()
         }
         .padding(dimensions.large)
