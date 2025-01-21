@@ -26,6 +26,7 @@ struct NavGraph: View {
                     container: container,
                     path: $path
                 )
+                .navigationBar(path: $path, isResetButtonVisible: false)
                 .navigationDestination(
                     for: Destination.self,
                     destination: { destination in
@@ -36,7 +37,7 @@ struct NavGraph: View {
                                     path: $path,
                                     categoryId: categoryId
                                 )
-                                .navigationBar(path: $path)
+                                .navigationBar(path: $path, isResetButtonVisible: true)
                             
                             case .foodAmountSelectionScreen(let foodId):
                                 FoodAmountSelectionScreen(
@@ -44,7 +45,7 @@ struct NavGraph: View {
                                     path: $path,
                                     foodId: foodId
                                 )
-                                .navigationBar(path: $path)
+                                .navigationBar(path: $path, isResetButtonVisible: true)
                             
                             case .foodResultScreen(
                                 let discardedFoodId,
@@ -56,7 +57,7 @@ struct NavGraph: View {
                                     discardedFoodId: discardedFoodId,
                                     discardedFoodAmount: discardedFoodAmount
                                 )
-                                .navigationBar(path: $path)
+                                .navigationBar(path: $path, isResetButtonVisible: true)
                             }
                     }
                 )

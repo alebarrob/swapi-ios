@@ -76,3 +76,9 @@ iOSInjectionProject/
 # Certificates and provisioning profiles
 *.mobileprovision
 *.provisionprofile
+
+# Secrets
+Secrets.xcconfig
+
+# Google Services
+GoogleService-Info.plist

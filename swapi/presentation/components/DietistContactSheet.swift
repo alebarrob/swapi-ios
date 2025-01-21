@@ -50,7 +50,7 @@ struct DietistContactSheet: View {
                         Text("Instagram")
                         .font(typography.labels.small)
                         .fontWeight(Font.Weight.semibold)
-                        .foregroundColor(colors.black)
+                        .foregroundColor(Color.primary)
                     }
                 }
 
@@ -73,7 +73,7 @@ struct DietistContactSheet: View {
                         Text("Email")
                         .font(typography.labels.small)
                         .fontWeight(Font.Weight.semibold)
-                        .foregroundColor(colors.black)
+                        .foregroundColor(Color.primary)
                     }
                 }
             }

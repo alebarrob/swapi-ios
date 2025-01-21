@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension View {
-    func navigationBar(path: Binding<NavigationPath>) -> some View {
-        self.modifier(NavigationBarModifier(path: path))
+    func navigationBar(path: Binding<NavigationPath>, isResetButtonVisible: Bool) -> some View {
+        self.modifier(NavigationBarModifier(path: path, isResetButtonVisible: isResetButtonVisible))
     }
 }
 

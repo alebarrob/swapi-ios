@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C193E4A2D36B84E00795397 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5C193E492D36B84E00795397 /* FirebaseAnalytics */; };
+		5C193E4C2D36B84E00795397 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5C193E4B2D36B84E00795397 /* FirebaseCrashlytics */; };
 		5C1B26B62D13279E00C20724 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C1B26B52D13279E00C20724 /* Factory */; };
+		5CB9B5412D3A1C9D00EBFCB0 /* GoogleUserMessagingPlatform in Frameworks */ = {isa = PBXBuildFile; productRef = 5CB9B5402D3A1C9D00EBFCB0 /* GoogleUserMessagingPlatform */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C193E4C2D36B84E00795397 /* FirebaseCrashlytics in Frameworks */,
+				5C193E4A2D36B84E00795397 /* FirebaseAnalytics in Frameworks */,
+				5CB9B5412D3A1C9D00EBFCB0 /* GoogleUserMessagingPlatform in Frameworks */,
 				5C1B26B62D13279E00C20724 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +144,7 @@
 				5C81DE722CF4EA8C005B3729 /* Sources */,
 				5C81DE732CF4EA8C005B3729 /* Frameworks */,
 				5C81DE742CF4EA8C005B3729 /* Resources */,
+				5CC8623C2D37742A000D753B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -150,6 +157,9 @@
 			name = Swapi;
 			packageProductDependencies = (
 				5C1B26B52D13279E00C20724 /* Factory */,
+				5C193E492D36B84E00795397 /* FirebaseAnalytics */,
+				5C193E4B2D36B84E00795397 /* FirebaseCrashlytics */,
+				5CB9B5402D3A1C9D00EBFCB0 /* GoogleUserMessagingPlatform */,
 			);
 			productName = swapi;
 			productReference = 5C81DE762CF4EA8C005B3729 /* Swapi.app */;
@@ -235,6 +245,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				5C1B26B32D13278C00C20724 /* XCRemoteSwiftPackageReference "Factory" */,
+				5C193E482D36B84E00795397 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5CB9B53D2D3A14A600EBFCB0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-user-messaging-platform" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5C81DE772CF4EA8C005B3729 /* Products */;
@@ -271,6 +283,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5CC8623C2D37742A000D753B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5C81DE722CF4EA8C005B3729 /* Sources */ = {
@@ -436,6 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"swapi/Preview Content\"";
 				DEVELOPMENT_TEAM = F9WRGXFXNM;
 				ENABLE_PREVIEWS = YES;
@@ -451,6 +490,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = barrera.alejandro.swapi;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -481,6 +521,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = barrera.alejandro.swapi;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -607,6 +648,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5C193E482D36B84E00795397 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.7.0;
+			};
+		};
 		5C1B26B32D13278C00C20724 /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
@@ -615,13 +664,35 @@
 				minimumVersion = 2.4.3;
 			};
 		};
+		5CB9B53D2D3A14A600EBFCB0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-user-messaging-platform" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5C193E492D36B84E00795397 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C193E482D36B84E00795397 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5C193E4B2D36B84E00795397 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C193E482D36B84E00795397 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		5C1B26B52D13279E00C20724 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C1B26B32D13278C00C20724 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		5CB9B5402D3A1C9D00EBFCB0 /* GoogleUserMessagingPlatform */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GoogleUserMessagingPlatform;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

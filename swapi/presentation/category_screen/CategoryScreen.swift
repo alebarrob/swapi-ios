@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Factory
+import UserMessagingPlatform
 
 struct CategoryScreen: View {
     @Environment(\.colors) var colors
@@ -45,6 +46,24 @@ struct CategoryScreen: View {
                 case .failure:
                     FailureScreen()
             }
+        }
+        .onAppear {
+            Task {
+                await showConsentMessage()
+            }
+        }
+    }
+    
+    func showConsentMessage() async {
+        do {
+            let parameters = UMPRequestParameters()
+            
+            parameters.tagForUnderAgeOfConsent = false
+            try await UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(with: parameters)
+            try await UMPConsentForm.loadAndPresentIfRequired(from: nil)
+        } catch {
+            print("Error al mostrar el consentimiento")
+            return
         }
     }
 }

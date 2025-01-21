@@ -13,6 +13,7 @@ struct NavigationBarModifier: ViewModifier {
     @Environment(\.typography) var typography
     
     @Binding var path: NavigationPath
+    let isResetButtonVisible: Bool
     
     @State private var showDietistSheet = false
     @State private var showInfoSheet = false
@@ -42,14 +43,16 @@ struct NavigationBarModifier: ViewModifier {
                                 .resizable()
                                 .scaledToFit()
                         }
-                        Button(
-                            action: {
-                                path = NavigationPath()
+                        if (isResetButtonVisible) {
+                            Button(
+                                action: {
+                                    path = NavigationPath()
+                                }
+                            ) {
+                                Image("restartIcon")
+                                    .resizable()
+                                    .scaledToFit()
                             }
-                        ) {
-                            Image("restartIcon")
-                                .resizable()
-                                .scaledToFit()
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
