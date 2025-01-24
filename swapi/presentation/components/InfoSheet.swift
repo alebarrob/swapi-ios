@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserMessagingPlatform
 
 struct InfoSheet: View {
     @Environment(\.dimensions) var dimensions
@@ -37,6 +38,27 @@ struct InfoSheet: View {
                 .foregroundColor(.blue)
                 .multilineTextAlignment(.leading)
             }
+            Divider()
+            Text("Formulario de Consentimiento para Anuncios Personalizados")
+            .font(typography.titles.medium)
+            .fontWeight(.semibold)
+            Button(
+                action: {
+                    Task {
+                        do {
+                            try await UMPConsentForm.presentPrivacyOptionsForm(from: nil)
+                        } catch {
+                            print("Error al mostrar el formulario de consentimiento: \(error)")
+                        }
+                    }
+                },
+                label: {
+                    Text("Ver Formulario")
+                    .font(typography.body.medium)
+                }
+            )
+            .buttonStyle(.bordered)
+            .foregroundColor(Color.primary)
             Spacer()
         }
         .padding(dimensions.large)

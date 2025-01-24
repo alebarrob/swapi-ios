@@ -11,6 +11,7 @@
 		5C193E4C2D36B84E00795397 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5C193E4B2D36B84E00795397 /* FirebaseCrashlytics */; };
 		5C1B26B62D13279E00C20724 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C1B26B52D13279E00C20724 /* Factory */; };
 		5CB9B5412D3A1C9D00EBFCB0 /* GoogleUserMessagingPlatform in Frameworks */ = {isa = PBXBuildFile; productRef = 5CB9B5402D3A1C9D00EBFCB0 /* GoogleUserMessagingPlatform */; };
+		5CC458F82D3F62C700BF7D88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CC458F02D3F5F0D00BF7D88 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 		5C81DE882CF4EA8D005B3729 /* swapiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swapiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C81DE922CF4EA8D005B3729 /* swapiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swapiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA4ECBE2D0FECE90070B589 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		5CC458F02D3F5F0D00BF7D88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5CC458F62D3F60EE00BF7D88 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -113,6 +116,7 @@
 		5C81DE6D2CF4EA8C005B3729 = {
 			isa = PBXGroup;
 			children = (
+				5CC458F62D3F60EE00BF7D88 /* Secrets.xcconfig */,
 				5C5D96612D10863100FCC672 /* Info.plist */,
 				5C5D96582D10858000FCC672 /* Fonts */,
 				5CA4ECBE2D0FECE90070B589 /* .gitignore */,
@@ -121,6 +125,7 @@
 				5C81DE952CF4EA8D005B3729 /* swapiUITests */,
 				5C1B26B42D13279E00C20724 /* Frameworks */,
 				5C81DE772CF4EA8C005B3729 /* Products */,
+				5CC458F02D3F5F0D00BF7D88 /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -265,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC458F82D3F62C700BF7D88 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +356,7 @@
 /* Begin XCBuildConfiguration section */
 		5C81DE9A2CF4EA8D005B3729 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CC458F62D3F60EE00BF7D88 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -413,6 +420,7 @@
 		};
 		5C81DE9B2CF4EA8D005B3729 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CC458F62D3F60EE00BF7D88 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

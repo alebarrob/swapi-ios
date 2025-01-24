@@ -62,7 +62,7 @@ struct CategoryScreen: View {
             try await UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(with: parameters)
             try await UMPConsentForm.loadAndPresentIfRequired(from: nil)
         } catch {
-            print("Error al mostrar el consentimiento")
+            print("Error al mostrar el consentimiento: \(error.localizedDescription)")
             return
         }
     }
