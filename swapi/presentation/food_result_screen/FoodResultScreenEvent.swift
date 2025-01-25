@@ -6,8 +6,6 @@
 //
 
 enum FoodResultScreenEvent {
-    case loadEquivalentFoods(
-        discardedFoodId: Int,
-        discardedFoodAmount: String
-    )
+    case loadEquivalentFoods
+    case loadAd
 }

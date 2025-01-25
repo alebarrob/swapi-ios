@@ -22,6 +22,7 @@ extension Container {
                 categoryId: categoryId
             )
         }
+        .singleton
     }
     
     var foodAmountSelectionViewModel: ParameterFactory<Int, FoodAmountSelectionViewModel> {
@@ -32,6 +33,7 @@ extension Container {
                 foodId: foodId
             )
         }
+        .singleton
     }
     
     var foodResultViewModel: ParameterFactory<(Int, String), FoodResultViewModel> {
@@ -44,5 +46,6 @@ extension Container {
                     discardedFoodAmount: discardedFoodAmount
                 )
             }
+            .singleton
         }
 }

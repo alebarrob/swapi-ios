@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Factory
+import GoogleMobileAds
 
 struct FoodResultScreen: View {
     @Environment(\.colors) var colors
@@ -46,9 +47,32 @@ struct FoodResultScreen: View {
                         discardedFoodAmount: discardedFoodAmount,
                         equivalentFoods: equivalentFoods
                     )
+                
+                case .ad(let interstitialAd):
+                    AdScreen(interstitialAd: interstitialAd)
 
                 case .failure:
                     FailureScreen()
+            }
+        }
+        .onAppear {
+            let defaultEquivalentFoodsCount = 0
+            let equivalentFoodsCountIncrement = 1
+            let maxEquivalentFoodsCount = 5
+            let equivalentFoodsCount = UserDefaults.standard.integer(forKey: UserDefaultsKeys.equivalentFoodsCount)
+            
+            if (equivalentFoodsCount == maxEquivalentFoodsCount) {
+                viewModel.onEvent(FoodResultScreenEvent.loadAd)
+                UserDefaults.standard.set(
+                    defaultEquivalentFoodsCount,
+                    forKey: UserDefaultsKeys.equivalentFoodsCount
+                )
+            } else {
+                viewModel.onEvent(FoodResultScreenEvent.loadEquivalentFoods)
+                UserDefaults.standard.set(
+                    equivalentFoodsCount + equivalentFoodsCountIncrement,
+                    forKey: UserDefaultsKeys.equivalentFoodsCount
+                )
             }
         }
     }
@@ -166,5 +190,31 @@ struct SuccessFoodResultScreen: View {
                 )
             ]
         )
+    }
+}
+
+struct AdScreen: View {
+    @Environment(\.colors) var colors
+    @Environment(\.typography) var typography
+    
+    let interstitialAd: GADInterstitialAd?
+
+    var body: some View {
+        Text("¡Ya casi estamos!")
+            .font(typography.body.medium)
+            .foregroundColor(colors.black)
+            .multilineTextAlignment(.center)
+            .onAppear {
+                presentAd()
+            }
+    }
+    
+    private func presentAd() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first,
+              let rootViewController = window.rootViewController else {
+            return
+        }
+        interstitialAd?.present(fromRootViewController: rootViewController)
     }
 }

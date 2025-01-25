@@ -7,12 +7,16 @@
 
 import Foundation
 import Combine
+import GoogleMobileAds
 
-class FoodResultViewModel : ObservableObject {
+class FoodResultViewModel : NSObject, GADFullScreenContentDelegate, ObservableObject {
     @Published private(set) var state: FoodResultScreenState = .loading
     private let getFoodById: GetFoodById
     private let getFoodsByCategoryId: GetFoodsByCategoryId
     private let getEquivalentFoods: GetEquivalentFoods
+    
+    private let discardedFoodId: Int
+    private let discardedFoodAmount: String
     
     init(
         getFoodById: GetFoodById,
@@ -24,25 +28,22 @@ class FoodResultViewModel : ObservableObject {
         self.getFoodById = getFoodById
         self.getFoodsByCategoryId = getFoodsByCategoryId
         self.getEquivalentFoods = getEquivalentFoods
+        self.discardedFoodId = discardedFoodId
+        self.discardedFoodAmount = discardedFoodAmount
         
-        onEvent(
-            FoodResultScreenEvent.loadEquivalentFoods(
-                discardedFoodId: discardedFoodId,
-                discardedFoodAmount: discardedFoodAmount
-            )
-        )
+        super.init()
     }
     
     func onEvent(_ event: FoodResultScreenEvent) {
         switch event {
-        case .loadEquivalentFoods(
-            let discardedFoodId,
-            let discardedFoodAmount
-        ):
+        case .loadEquivalentFoods:
             loadEquivalentFoods(
                 discardedFoodId: discardedFoodId,
                 discardedFoodAmount: discardedFoodAmount
             )
+            
+        case .loadAd:
+            loadAd()
         }
     }
     
@@ -92,5 +93,40 @@ class FoodResultViewModel : ObservableObject {
                 }
             }
         }
+    }
+    
+    private func loadAd() {
+        state = .loading
+        
+        Task {
+            do {
+                let adUnitId = Bundle.main.object(forInfoDictionaryKey: "InterstitialAdId") as? String ?? ""
+                let interstitialAd = try await GADInterstitialAd.load(
+                    withAdUnitID: adUnitId,
+                    request: GADRequest()
+                )
+                
+                interstitialAd.fullScreenContentDelegate = self
+                await MainActor.run { [weak self] in
+                    self?.state = .ad(interstitialAd: interstitialAd)
+                }
+            } catch {
+                print("Error al cargar el anuncio intersticial: \(error.localizedDescription)")
+                await MainActor.run { [weak self] in
+                    self?.state = .failure
+                }
+            }
+        }
+    }
+    
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+            onEvent(.loadEquivalentFoods)
+    }
+    
+    func ad(
+          _ ad: GADFullScreenPresentingAd,
+          didFailToPresentFullScreenContentWithError error: Error
+    ) {
+        onEvent(.loadEquivalentFoods)
     }
 }

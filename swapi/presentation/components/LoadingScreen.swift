@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct LoadingScreen: View {
+    @Environment(\.colors) var colors
+    
     var body: some View {
         ZStack {
             ProgressView("¡Espera un momento!")
+            .foregroundColor(colors.black)
             .progressViewStyle(CircularProgressViewStyle())
             .padding()
         }

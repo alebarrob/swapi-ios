@@ -5,6 +5,8 @@
 //  Created by Alejandro Barrera Robles on 24/12/24.
 //
 
+import GoogleMobileAds
+
 enum FoodResultScreenState {
     case loading
     
@@ -13,6 +15,8 @@ enum FoodResultScreenState {
         discardedFoodAmount: String,
         equivalentFoods: [FoodVo]
     )
+    
+    case ad(interstitialAd: GADInterstitialAd?)
     
     case failure
 }
