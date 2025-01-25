@@ -8,6 +8,7 @@
 import SwiftUI
 import Factory
 import GoogleMobileAds
+import UserMessagingPlatform
 
 struct FoodResultScreen: View {
     @Environment(\.colors) var colors
@@ -56,23 +57,27 @@ struct FoodResultScreen: View {
             }
         }
         .onAppear {
-            let defaultEquivalentFoodsCount = 0
-            let equivalentFoodsCountIncrement = 1
-            let maxEquivalentFoodsCount = 5
-            let equivalentFoodsCount = UserDefaults.standard.integer(forKey: UserDefaultsKeys.equivalentFoodsCount)
-            
-            if (equivalentFoodsCount == maxEquivalentFoodsCount) {
-                viewModel.onEvent(FoodResultScreenEvent.loadAd)
-                UserDefaults.standard.set(
-                    defaultEquivalentFoodsCount,
-                    forKey: UserDefaultsKeys.equivalentFoodsCount
-                )
+            if (UMPConsentInformation.sharedInstance.canRequestAds) {
+                let defaultEquivalentFoodsCount = 0
+                let equivalentFoodsCountIncrement = 1
+                let maxEquivalentFoodsCount = 5
+                let equivalentFoodsCount = UserDefaults.standard.integer(forKey: UserDefaultsKeys.equivalentFoodsCount)
+                
+                if (equivalentFoodsCount == maxEquivalentFoodsCount) {
+                    viewModel.onEvent(FoodResultScreenEvent.loadAd)
+                    UserDefaults.standard.set(
+                        defaultEquivalentFoodsCount,
+                        forKey: UserDefaultsKeys.equivalentFoodsCount
+                    )
+                } else {
+                    viewModel.onEvent(FoodResultScreenEvent.loadEquivalentFoods)
+                    UserDefaults.standard.set(
+                        equivalentFoodsCount + equivalentFoodsCountIncrement,
+                        forKey: UserDefaultsKeys.equivalentFoodsCount
+                    )
+                }
             } else {
                 viewModel.onEvent(FoodResultScreenEvent.loadEquivalentFoods)
-                UserDefaults.standard.set(
-                    equivalentFoodsCount + equivalentFoodsCountIncrement,
-                    forKey: UserDefaultsKeys.equivalentFoodsCount
-                )
             }
         }
     }
